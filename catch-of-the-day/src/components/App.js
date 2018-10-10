@@ -1,5 +1,7 @@
 import React from 'react'
 import Header from './Header'
+import Inventory from './Inventory'
+import Order from './Order'
 
 class App extends React.Component {
 render() {
@@ -8,9 +10,11 @@ render() {
             <div className='catch-of-the-day'>
                 <div className='menu'>
                     <Header />
-                    {/*<inventory />*/}
-                    {/*<order />*/}
                 </div>
+                <Order />
+                <Inventory />
+                    
+                
             </div>
         </React.Fragment>
     )
