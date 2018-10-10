@@ -13,8 +13,6 @@ render() {
                 </div>
                 <Order />
                 <Inventory />
-                    
-                
             </div>
         </React.Fragment>
     )
