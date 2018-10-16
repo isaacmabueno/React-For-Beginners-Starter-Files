@@ -1,21 +1,35 @@
 import React from 'react';
-import { format } from 'url';
+import { getFunName } from '../helpers.js'
+
 
 class StorePicker extends React.Component {
 
-    goToStore() {
-        console.log('hey');
-    }
+myInput = React.createRef();
+
+goToStore = (event) => {
+    //stop the form from submitting
+    event.preventDefault();
+
+    //get text from that input
+    const storeName = this.myInput.value.value;
+    
+    //change the page to /store/whatever-they-entered
+    //here we will use pushDate using react router
+
+    this.props.history.push(`/store/${storeName}`)
+}
     render() {
         return (
             <React.Fragment>
-            <form className='store-selector' onSelect={this.goToStore}>
+            <form className='store-selector' onSubmit={this.goToStore}>
                 <h2>Please Enter A Store</h2>   
                 <input 
-                    type='text' 
-                    required 
-                    placeholder='Store Name' 
-                    defaultValue={getFunName()}
+                type='text' 
+                ref={this.myInput}
+                required 
+                placeholder='Store Name' 
+                defaultValue={getFunName()} 
+                
                 />
                 <button type='submit'>Visit Store &rarr;</button>
             </form>
